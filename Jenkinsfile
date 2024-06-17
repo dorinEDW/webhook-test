@@ -20,8 +20,8 @@ pipeline {
                 script{
                     if (env.CHANGE_ID) {  // if there is a PR
                         // check from what branch
-                        def dev_branch_pattern =~ /^((feature)|(bug))\/dev-.*$/
-                        def exp_branch_pattern =~ /^((feature)|(bug))\/exp-.*$/
+                        dev_branch_pattern =~ /^((feature)|(bug))\/dev-.*$/
+                        exp_branch_pattern =~ /^((feature)|(bug))\/exp-.*$/
 
                         // Check for `dev`
                         if (env.CHANGE_BRANCH.matches(dev_branch_pattern)){  // if the branch from which the changes are coming (source branch) has `dev-`
