@@ -11,7 +11,7 @@ pipeline {
         MAIN_BRANCH = 'main'
         EXP_BRANCH = 'exp'  // experimental 
         DEV_BRANCH = 'dev'
-        ALLOWED_BRANCHES = [$(env.MAIN_BRANCH), $(env.EXP_BRANCH), $(env.DEV_BRANCH)]  // branches that are allowed to merge into each other
+        // ALLOWED_BRANCHES = [$(env.MAIN_BRANCH), $(env.EXP_BRANCH), $(env.DEV_BRANCH)]  // branches that are allowed to merge into each other
     }
     
     stages {
