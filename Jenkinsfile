@@ -20,20 +20,17 @@ pipeline {
                 script{
                     if (env.CHANGE_ID) {  // if there is a PR
                         // check from what branch
-                        echo "I am a PR"
-                        // dev_branch_pattern =~ /^((feature)|(bug))\/dev-.*$/
-                        // exp_branch_pattern =~ /^((feature)|(bug))\/exp-.*$/
 
                         // Check for `dev`
                         if (env.CHANGE_BRANCH =~ /^((feature)|(bug))\/dev-.*$/){  // if the branch from which the changes are coming (source branch) has `dev-`
                             if(env.CHANGE_TARGET != DEV_BRANCH){  // if the target branch where the changes will be merged into is dev
-                                error "Cannot merge branch ${env.CHANGE_BRANCH} with different parent into ${env.CHANGE_TARGET}"
+                                error "Cannot merge branch ${env.CHANGE_BRANCH} with different parent (${DEV_BRANCH}) into ${env.CHANGE_TARGET}"
                             }
                         }
                         // Check for `exp`
                         else if (env.CHANGE_BRANCH =~ /^((feature)|(bug))\/exp-.*$/){  // if the branch from which the changes are coming (source branch) has `dev-`
                             if(env.CHANGE_TARGET != EXP_BRANCH){  // if the target branch where the changes will be merged into is dev
-                                error "Cannot merge branch ${env.CHANGE_BRANCH} with different parent into ${env.CHANGE_TARGET}"
+                                error "Cannot merge branch ${env.CHANGE_BRANCH} with different parent (${EXP_BRANCH}) into ${env.CHANGE_TARGET}"
                             }
                         }
 
