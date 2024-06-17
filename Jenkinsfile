@@ -55,7 +55,7 @@ pipeline {
         stage ("Mini test"){
             steps{
                 script{
-                    echo "Hello, world! Ana are mere."
+                    echo "Hello, world! Ana are mere.!"
                 }
             }
         }
